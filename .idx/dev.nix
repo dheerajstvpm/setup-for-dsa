@@ -13,6 +13,15 @@
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       "angular.ng-template"
+      "johnpapa.angular2"
+      "formulahendry.auto-close-tag"
+      "usernamehw.errorlens"
+      "dbaeumer.vscode-eslint"
+      "esbenp.prettier-vscode"
+      "pkief.material-icon-theme"
+      "vscodevim.vim"
+      "vintharas.learn-vim"
+      "tomrijndorp.find-it-faster"
     ];
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file

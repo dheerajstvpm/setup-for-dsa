@@ -22,6 +22,7 @@
       "vscodevim.vim"
       "vintharas.learn-vim"
       "tomrijndorp.find-it-faster"
+      "bradlc.vscode-tailwindcss"
     ];
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file

@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build --base-href /setup-for-dsa/",
     "move": "mv dist/myapp/browser/* docs/",
-    "github": "npm run build && npm run move",
+    "push": "git add . && git commit -m \"build files\" && git push",
+    "github": "npm run build && npm run move && npm run push",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

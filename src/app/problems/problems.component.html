@@ -33,16 +33,20 @@
     <div
       class="flex-1 w-full bg-white p-2 rounded border border-black overflow-auto"
     >
-      {{ question.question }}
+      {{ question.statement }}
     </div>
+    @if (!showSolution) {
     <div class="w-full flex justify-end">
       <button class="border px-2 py-1 rounded" (click)="toggleSolution()">
         Solution
       </button>
     </div>
-    @if (showSolution) {
+    } @if (showSolution) {
     <div class="w-full bg-white p-2 rounded border border-black overflow-auto">
-      <p>Solution:</p>
+      <div class="w-full flex justify-between">
+        <p>Solution:</p>
+        <button (click)="toggleSolution()">x</button>
+      </div>
       <div class="w-full break-words" [innerHTML]="question.solution"></div>
     </div>
     }

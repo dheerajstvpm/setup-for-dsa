@@ -1,7 +1,7 @@
 import { NgIf } from '@angular/common';
-import { Component, HostBinding, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IDsa, dsa } from '../dsa';
+import { IDsaQuestion, dsaQuestions } from '../dsaQuestions';
 
 @Component({
   selector: 'app-problems',
@@ -11,8 +11,8 @@ import { IDsa, dsa } from '../dsa';
   styleUrl: './problems.component.css',
 })
 export class ProblemsComponent {
-  dsa: IDsa = dsa;
-  question = Object.keys(this.dsa).map((key) => this.dsa[key])[0];
+  dsa = dsaQuestions;
+  question:IDsaQuestion = Object.keys(this.dsa).map((key) => this.dsa[key])[0][0];
   answer: string = localStorage.getItem(this.question.id) || '';
   output: any;
   showQuestion = false;
@@ -46,6 +46,5 @@ export class ProblemsComponent {
 
   clear() {
     this.output = '';
-    this.answer = '';
   }
 }

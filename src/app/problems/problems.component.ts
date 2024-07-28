@@ -8,7 +8,7 @@ import { IDsaQuestion, dsaQuestions } from '../dsaQuestions';
   standalone: true,
   imports: [FormsModule, NgIf],
   templateUrl: './problems.component.html',
-  styleUrl: './problems.component.css',
+  styleUrl: './problems.component.scss',
 })
 export class ProblemsComponent {
   dsa = dsaQuestions;

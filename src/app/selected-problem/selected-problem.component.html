@@ -1,56 +1,55 @@
 <div class="w-full h-full p-2 bg-gray-300 flex gap-2">
-    <div class="flex-1 h-full flex flex-col items-start justify-start gap-2">
-      <div class="flex-1 w-full flex flex-col gap-2">
-        <textarea
-          class="flex-1 w-full p-2 rounded overflow-auto"
-          name="answer"
-          id="answer"
-          [(ngModel)]="answer"
-          cols="30"
-          rows="10"
-        ></textarea>
-        <div class="w-full flex gap-2 justify-end">
-          <button class="border px-2 py-1 rounded" (click)="runProgram()">
-            Submit
-          </button>
-          <button class="border rounded-full px-2" (click)="toggleQuestion()">
-            ?
-          </button>
-        </div>
-      </div>
-      @if (output) {
-      <div class="w-full bg-white p-2 rounded border border-black">
-        <div class="w-full flex justify-between">
-          <p>Output:</p>
-          <button (click)="clear()">x</button>
-        </div>
-        <div class="w-full break-words">{{ output }}</div>
-      </div>
-      }
-    </div>
-    @if (showQuestion) {
+  <div class="flex-1 h-full flex flex-col items-start justify-start gap-2">
     <div class="flex-1 w-full flex flex-col gap-2">
-      <div
-        class="flex-1 w-full bg-white p-2 rounded border border-black overflow-auto"
-      >
-        {{ question.statement }}
-      </div>
-      @if (!showSolution) {
-      <div class="w-full flex justify-end">
-        <button class="border px-2 py-1 rounded" (click)="toggleSolution()">
-          Solution
+      <textarea
+        class="flex-1 w-full p-2 rounded overflow-auto"
+        name="answer"
+        id="answer"
+        [(ngModel)]="answer"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <div class="w-full flex gap-2 justify-end">
+        <button class="border px-2 py-1 rounded" (click)="runProgram()">
+          Submit
+        </button>
+        <button class="border rounded-full px-2" (click)="toggleQuestion()">
+          ?
         </button>
       </div>
-      } @if (showSolution) {
-      <div class="w-full bg-white p-2 rounded border border-black overflow-auto">
-        <div class="w-full flex justify-between">
-          <p>Solution:</p>
-          <button (click)="toggleSolution()">x</button>
-        </div>
-        <div class="w-full break-words" [innerHTML]="question.solution"></div>
+    </div>
+    @if (output) {
+    <div class="w-full bg-white p-2 rounded border border-black">
+      <div class="w-full flex justify-between">
+        <p>Output:</p>
+        <button (click)="clear()">x</button>
       </div>
-      }
+      <div class="w-full break-words">{{ output }}</div>
     </div>
     }
   </div>
-  
+  @if (showQuestion) {
+  <div class="flex-1 w-full flex flex-col gap-2">
+    <div
+      class="flex-1 w-full bg-white p-2 rounded border border-black overflow-auto"
+    >
+      {{ question.statement }}
+    </div>
+    @if (!showSolution) {
+    <div class="w-full flex justify-end">
+      <button class="border px-2 py-1 rounded" (click)="toggleSolution()">
+        Solution
+      </button>
+    </div>
+    } @if (showSolution) {
+    <div class="w-full bg-white p-2 rounded border border-black overflow-auto">
+      <div class="w-full flex justify-between">
+        <p>Solution:</p>
+        <button (click)="toggleSolution()">x</button>
+      </div>
+      <div class="w-full break-words" [innerHTML]="question.solution"></div>
+    </div>
+    }
+  </div>
+  }
+</div>

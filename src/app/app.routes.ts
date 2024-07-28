@@ -11,4 +11,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./problems/problems.component').then((c) => c.ProblemsComponent),
   },
+  {
+    path: 'selected-problem',
+    loadComponent: () =>
+      import('./selected-problem/selected-problem.component').then((c) => c.SelectedProblemComponent),
+  },
 ];

@@ -1,27 +1,17 @@
-<div class="collapse collapse-arrow bg-base-200">
-  <input type="radio" name="my-accordion-2" />
-  <div class="collapse-title text-xl font-medium">
-    Click to open this one and close others
+<div class="w-full h-full flex flex-col items-start justify-start gap-2 p-2 overflow-auto">
+  @for (item of dsaQuestions; track $index) {
+  <div class="collapse collapse-arrow bg-base-200">
+    <input type="radio" name="my-accordion-2" />
+    <div class="collapse-title text-xl font-medium">
+      {{ item.name }}
+    </div>
+    <div class="collapse-content flex flex-col gap-2">
+      @for (question of item.questions; track question.id) {
+      <p class="cursor-pointer rounded border border-neutral-500 p-1" (click)="selectProblem(question)">
+        {{ question.id }}
+      </p>
+      }
+    </div>
   </div>
-  <div class="collapse-content">
-    <p>hello</p>
-  </div>
-</div>
-<div class="collapse collapse-arrow bg-base-200">
-  <input type="radio" name="my-accordion-2" />
-  <div class="collapse-title text-xl font-medium">
-    Click to open this one and close others
-  </div>
-  <div class="collapse-content">
-    <p>hello</p>
-  </div>
-</div>
-<div class="collapse collapse-arrow bg-base-200">
-  <input type="radio" name="my-accordion-2" />
-  <div class="collapse-title text-xl font-medium">
-    Click to open this one and close others
-  </div>
-  <div class="collapse-content">
-    <p>hello</p>
-  </div>
+  }
 </div>

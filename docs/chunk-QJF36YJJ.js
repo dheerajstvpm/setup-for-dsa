@@ -1,23 +1,4 @@
-interface IDsaQuestions {
-  name: string;
-  questions: IDsaQuestion[];
-}
-
-export interface IDsaQuestion {
-  id: string;
-  statement: string;
-  solution: string;
-  hint?: string;
-  test?: string;
-}
-
-export const dsaQuestions: IDsaQuestions[] = [
-  {
-    name: 'Linked list',
-    questions: [
-      {
-        id: 'Push',
-        statement: `
+import{Ca as r,M as t}from"./chunk-MPMPWTO5.js";var n=[{name:"Linked list",questions:[{id:"Push",statement:`
         Implement the push method for the LinkedList class.
 
 <br/>Your push method should take an integer as an input, create a new Node object with that input as its value, and add it to the end of the linked list.
@@ -33,8 +14,7 @@ export const dsaQuestions: IDsaQuestions[] = [
 <br/>If the list is not empty, set the next attribute of the current tail node to point to the newNode, then update the tail pointer to point to newNode.
 <br/>
 <br/>Increase the length attribute by one.
-      `,
-        solution: `
+      `,solution:`
       class Node {
       <br/>>    constructor(value){
       <br/>        this.value = value;
@@ -99,11 +79,7 @@ export const dsaQuestions: IDsaQuestions[] = [
       <br/>    }
       <br/>
       <br/>}
-      `,
-      },
-      {
-        id: 'Pop',
-        statement: `
+      `},{id:"Pop",statement:`
         Implement the pop method for the LinkedList class in JavaScript.
         <br/>
         <br/>Your pop method should not accept any inputs.
@@ -125,8 +101,7 @@ export const dsaQuestions: IDsaQuestions[] = [
         <br/>If the list becomes empty after the pop operation (i.e., the length attribute becomes 0), set both head and tail pointers to null.
         <br/>
         <br/>>Return the removed node
-        `,
-        solution: `
+        `,solution:`
       <br/>>  class Node {
       <br/>    constructor(value){
       <br/>        this.value = value;
@@ -211,27 +186,8 @@ export const dsaQuestions: IDsaQuestions[] = [
       <br/>    }
       <br/>
       <br/>}
-      `,
-      },
-    ],
-  },
-  {
-    name: 'Doubly linked list',
-    questions: [
-      {
-        id: '2',
-        statement: `???`,
-        solution: `12312312
+      `}]},{name:"Doubly linked list",questions:[{id:"2",statement:"???",solution:`12312312
     12312312
-    12312312312`,
-      },
-      {
-        id: '2',
-        statement: `???`,
-        solution: `12312312
+    12312312312`},{id:"2",statement:"???",solution:`12312312
     12312312
-    12312312312`,
-      },
-    ],
-  },
-] as const;
+    12312312312`}]}];var d=(()=>{class e{currentQuestion=r(n[0].questions[0]);static \u0275fac=function(b){return new(b||e)};static \u0275prov=t({token:e,factory:e.\u0275fac,providedIn:"root"})}return e})();export{n as a,d as b};

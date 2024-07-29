@@ -1,7 +1,8 @@
 import { NgIf } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IDsaQuestion, dsaQuestions } from '../dsaQuestions';
+import { ProblemService } from '../problem.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-selected-problem',
@@ -10,16 +11,20 @@ import { IDsaQuestion, dsaQuestions } from '../dsaQuestions';
   templateUrl: './selected-problem.component.html',
   styleUrl: './selected-problem.component.scss',
 })
-export class SelectedProblemComponent {
-  dsa = dsaQuestions;
-  question: IDsaQuestion = Object.keys(this.dsa).map(
-    (key) => this.dsa[key]
-  )[0][0];
-  answer: string = localStorage.getItem(this.question.id) || '';
+export class SelectedProblemComponent implements OnInit {
+  problemService = inject(ProblemService);
+  router = inject(Router);
+  question: any;
+  answer: string = '';
   output: any;
-  showQuestion = false;
+  showQuestion = true;
   showSolution = false;
   previousKey = '';
+
+  ngOnInit(): void {
+    this.question = this.problemService.currentQuestion;
+    this.answer = localStorage.getItem(this.question().id) || '';
+  }
 
   @HostListener('window:keydown', ['$event'])
   onKeydownMain(event: KeyboardEvent): void {
@@ -35,15 +40,26 @@ export class SelectedProblemComponent {
 
   toggleSolution() {
     this.showSolution = !this.showSolution;
+    if (this.showSolution) {
+      this.showQuestion = true;
+    }
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 500);
   }
 
   runProgram() {
     try {
       this.output = String(eval(this.answer));
-      localStorage.setItem(this.question.id, this.answer);
+      localStorage.setItem(this.question().id, this.answer);
     } catch (error) {
       this.output = error;
     }
+    this.router.navigate([], { fragment: 'output' });
   }
 
   clear() {

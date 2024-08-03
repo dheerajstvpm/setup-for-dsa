@@ -43,15 +43,14 @@ export class SelectedProblemComponent implements OnInit {
     if (this.showSolution) {
       this.showQuestion = true;
     }
-    this.scrollToBottom();
   }
-
+  
   scrollToBottom() {
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight);
-    }, 500);
+    }, 50);
   }
-
+  
   runProgram() {
     try {
       this.output = String(eval(this.answer));
@@ -59,7 +58,7 @@ export class SelectedProblemComponent implements OnInit {
     } catch (error) {
       this.output = error;
     }
-    this.router.navigate([], { fragment: 'output' });
+    this.scrollToBottom();
   }
 
   clear() {

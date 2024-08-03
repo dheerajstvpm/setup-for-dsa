@@ -1,23 +1,4 @@
-<div class="w-full h-full p-2 sm:flex gap-2">
-  @if (showQuestion) {
-  <div class="flex-1 w-full flex flex-col gap-2 overflow-auto">
-    <div
-      class="flex-1 w-full p-2 rounded border border-error bg-base-200 overflow-auto"
-      [innerHTML]="question().statement"
-    ></div>
-    @if (showSolution) {
-    <div
-      class="w-full p-2 rounded border border-accent bg-base-200 overflow-auto"
-    >
-      <div class="w-full flex justify-between">
-        <p>Solution:</p>
-        <button (click)="toggleSolution()">x</button>
-      </div>
-      <div class="w-full break-words" [innerHTML]="question().solution"></div>
-    </div>
-    }
-  </div>
-  }
+<div class="w-full h-full p-2 flex flex-col sm:flex-row gap-2">
   <div class="flex-1 h-full flex flex-col items-start justify-start gap-2">
     <div class="flex-1 w-full flex flex-col gap-2">
       <textarea
@@ -50,4 +31,30 @@
     </div>
     }
   </div>
+  @if (showQuestion) {
+  <div class="flex-1 sm:h-full flex flex-col gap-2">
+    <div class="sm:flex-1 p-2 rounded border border-error bg-base-200 overflow-auto">
+      <div class="w-full flex justify-between">
+        <p>Problem:</p>
+      </div>
+      <div
+        class="max-h-fit w-full"
+        [innerHTML]="question().statement"
+      ></div>
+    </div>
+    @if (showSolution) {
+    <div
+      class="relative flex-1 w-full p-2 rounded border border-accent bg-base-200 overflow-auto"
+    >
+      <button class="absolute top-0 right-0" (click)="toggleSolution()">
+        x
+      </button>
+      <div class="w-full flex justify-between">
+        <p>Solution:</p>
+      </div>
+      <div class="w-full break-words" [innerHTML]="question().solution"></div>
+    </div>
+    }
+  </div>
+  }
 </div>

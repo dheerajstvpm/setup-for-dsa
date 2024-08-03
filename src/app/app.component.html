@@ -1,5 +1,5 @@
-<div class="w-full h-full flex flex-col items-start justify-start">
-  <div class="flex w-full justify-end p-2">
+<div class="w-full h-full flex flex-col items-start justify-start overflow-auto">
+  <div class="hidden w-full p-2">
     <label class="flex cursor-pointer gap-2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@
       </svg>
     </label>
   </div>
-  <div class="flex-1 w-full">
+  <div class="flex-1 w-full overflow-auto">
     <router-outlet />
   </div>
 </div>

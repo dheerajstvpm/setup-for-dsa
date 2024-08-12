@@ -5,7 +5,7 @@
     <div class="collapse-title text-xl font-medium">
       {{ item.name }}
     </div>
-    <div class="collapse-content flex flex-col gap-2">
+    <div class="collapse-content flex flex-col gap-2 overflow-auto">
       @for (question of item.questions; track question.id) {
       <p class="cursor-pointer rounded border border-neutral-500 p-1" (click)="selectProblem(question)">
         {{ question.id }}

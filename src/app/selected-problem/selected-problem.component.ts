@@ -23,7 +23,7 @@ export class SelectedProblemComponent implements OnInit {
 
   ngOnInit(): void {
     this.question = this.problemService.currentQuestion;
-    this.answer = localStorage.getItem(this.question().id) || '';
+    this.answer = localStorage.getItem(this.question().id) || this.question().shell || '';
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -44,13 +44,13 @@ export class SelectedProblemComponent implements OnInit {
       this.showQuestion = true;
     }
   }
-  
+
   scrollToBottom() {
     setTimeout(() => {
       window.scrollTo(0, document.body.scrollHeight);
     }, 50);
   }
-  
+
   runProgram() {
     try {
       this.output = String(eval(this.answer));

@@ -17,6 +17,7 @@ export class ProblemsComponent {
 
   selectProblem(question: IDsaQuestion) {
     this.problemService.currentQuestion.set(question);
+    localStorage.setItem('currentQuestion', JSON.stringify(question));
     this.router.navigateByUrl(`/selected-problem`);
   }
 }

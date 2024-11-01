@@ -2,11 +2,11 @@
   "name": "myapp",
   "version": "0.0.0",
   "scripts": {
+    "404": "cp docs/index.html docs/404.html",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --base-href /setup-for-dsa/",
     "move": "mv dist/myapp/browser/* docs/",
-    "404": "cp docs/index.html docs/404.html",
     "push": "git add . && git commit -m \"build files\" && git push",
     "github": "pnpm run build && pnpm run move && pnpm run 404 && pnpm run push",
     "watch": "ng build --watch --configuration development",
@@ -24,7 +24,6 @@
     "@angular/platform-browser": "^18.1.0",
     "@angular/platform-browser-dynamic": "^18.1.0",
     "@angular/router": "^18.1.0",
-    "pnpm": "^9.6.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

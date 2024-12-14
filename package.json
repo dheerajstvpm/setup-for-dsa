@@ -6,9 +6,9 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build --base-href /setup-for-dsa/",
-    "push": "git add . && git commit -m \"build files\" && git push",
     "move": "mv dist/myapp/browser/* docs/",
     "404": "cp docs/index.html docs/404.html",
+    "push": "git add . && git commit -m \"build files\" && git push",
     "github": "pnpm run build && pnpm run move && pnpm run 404 && pnpm run push",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

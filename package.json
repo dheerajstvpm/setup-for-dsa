@@ -1,7 +1,7 @@
 {
   "name": "myapp",
   "version": "0.0.0",
-  "packageManager": "pnpm",
+  "packageManager": "pnpm@9.15.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
